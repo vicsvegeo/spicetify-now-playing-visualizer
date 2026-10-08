@@ -2,7 +2,7 @@
 
 Turns the album art in Spotify's **Now Playing** view into a live, beat-synced visualizer, right where the cover normally is.
 
-![The visualizer in Spotify's full screen view](docs/preview.jpg)
+![The visualizer in Spotify's full screen view](docs/demo.webp)
 
 - **Side panel:** a ring of bars around a spinning cover, pulsing on every beat, in colors taken from the album art.
 - **Songs with a looping Canvas video:** the visualizer replaces the video. A **Switch to Canvas / Switch to visualizer** button lets you flip between them.
