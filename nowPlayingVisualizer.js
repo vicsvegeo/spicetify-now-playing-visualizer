@@ -1,6 +1,6 @@
 // NAME: Now Playing Visualizer
 // AUTHOR: vicsvegeo
-// VERSION: 1.0.0
+// VERSION: 1.0.1
 // DESCRIPTION: Turns the cover art in Spotify's Now Playing view into an audio visualizer.
 // Driven by Spotify's audio analysis (loudness, pitch, beats and sections, synced to playback).
 // Shows in three places:
@@ -668,6 +668,7 @@
 
   // ---- expanded / full screen mode switcher button ----
   let checkedCls = [];
+  let switchingToArtwork = false; // our own click on Spotify's artwork button
 
   function syncStageButton(group) {
     let btn = group.querySelector(".npv-visualizer-radio");
@@ -697,7 +698,7 @@
       group.addEventListener(
         "click",
         (e) => {
-          if (e.target.closest(".npv-visualizer-radio")) return;
+          if (switchingToArtwork || e.target.closest(".npv-visualizer-radio")) return;
           if (e.target.closest('button[role="radio"]')) {
             stageOn = false;
             store.set("stageOn", "0");
@@ -706,6 +707,14 @@
         },
         true
       );
+    }
+    // The visualizer sits on the artwork stage, which lyrics / Canvas / artist modes don't
+    // show, so while it's on keep Spotify in artwork mode.
+    const art = native.find((b) => b.getAttribute("value") === "artwork");
+    if (stageOn && art && art.getAttribute("aria-checked") !== "true") {
+      switchingToArtwork = true;
+      art.click();
+      switchingToArtwork = false;
     }
     btn.setAttribute("aria-checked", String(stageOn));
     for (const c of checkedCls) btn.classList.toggle(c, stageOn);
