@@ -1,0 +1,2 @@
+# Build output; Setup.exe is published as a GitHub Release asset instead.
+installer/windows/dist/

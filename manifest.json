@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Now Playing Visualizer",
+    "description": "Turns the cover art in the Now Playing view into a beat-synced audio visualizer: in the side panel (with a toggle to replace Canvas videos), the expanded view and full screen.",
+    "preview": "docs/preview.jpg",
+    "main": "nowPlayingVisualizer.js",
+    "readme": "README.md",
+    "branch": "main",
+    "authors": [{ "name": "vicsvegeo", "url": "https://github.com/vicsvegeo" }],
+    "tags": ["visualizer", "now playing", "fullscreen", "canvas"]
+  }
+]
