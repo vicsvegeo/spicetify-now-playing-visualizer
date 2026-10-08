@@ -1,2 +1,3 @@
-# Build output; Setup.exe is published as a GitHub Release asset instead.
+# Build output; the installers are published as GitHub Release assets instead.
 installer/windows/dist/
+installer/mac/dist/
